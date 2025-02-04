@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class Main extends JFrame{
@@ -13,26 +15,12 @@ public class Main extends JFrame{
     int winHeight;
     int safeWidth = 500;
     int safeHeight = 300;
-    public KeyPad keyPad;
-    public Display display;
-    public AccessIndicator accessIndicator;
+
+
+    public Panel panel;
     public Main(){
-
-        keyPad = new KeyPad();
-        display = new Display();
-        accessIndicator = new AccessIndicator();
-
-        add(display.dPanel,BorderLayout.NORTH);
-        add(keyPad.kPPanel,BorderLayout.EAST);
-
-        accessIndicator.aIPanel.setPreferredSize(new Dimension(150, 0));
-        accessIndicator.aIPanel.setBackground(Color.GREEN);
-        add(accessIndicator.aIPanel,BorderLayout.WEST);
-
-        add(new JLabel("SafeDoor"),BorderLayout.CENTER);
-        add(new JLabel("Access the safe above!"),BorderLayout.SOUTH);
-
-
+        panel = new Panel();
+        add(panel);
 
         //Set window title,dimensions, location, and visibility
         setTitle("Interactive Safe!");

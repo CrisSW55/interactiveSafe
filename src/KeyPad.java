@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class KeyPad{
@@ -29,6 +31,13 @@ public class KeyPad{
         kPPanel.add(btn7);kPPanel.add(btn8);kPPanel.add(btn9);
         kPPanel.add(btnClear);kPPanel.add(btn0);kPPanel.add(btnEnter);
 
+        //Add button listener
+        btn0.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //String setICode();
+                //dLabel.setText("0");
+            }
+        });
         //kPPanel.setBackground(Color.CYAN);
     }
 
