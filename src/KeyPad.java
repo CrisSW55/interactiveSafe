@@ -7,14 +7,15 @@ import java.awt.event.ActionListener;
 public class KeyPad{
     final String code = "4590";
     String inputCode = "4590";
-    public KeyHandler kH;
+    //public KeyHandler kH;
     public JPanel kPPanel;
     public JButton btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,
             btnEnter,btnClear;
 
     public KeyPad(){
-        kH = new KeyHandler();
+        //kH = new KeyHandler();
         kPPanel = new JPanel();
+        kPPanel.setBackground(Color.DARK_GRAY);
         kPPanel.setLayout(new GridLayout(4, 3, 10, 5));
 
         //Initialize keyPad buttons!
@@ -31,31 +32,5 @@ public class KeyPad{
         kPPanel.add(btn7);kPPanel.add(btn8);kPPanel.add(btn9);
         kPPanel.add(btnClear);kPPanel.add(btn0);kPPanel.add(btnEnter);
 
-        //Add button listener
-        btn0.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //String setICode();
-                //dLabel.setText("0");
-            }
-        });
-        //kPPanel.setBackground(Color.CYAN);
     }
-
-    public boolean isValid(){
-        if(code.equals(inputCode)){return true;}
-        return false;
-    }
-
-    public String setICode(String inputCode){
-        if(inputCode.length() < 5){
-            this.inputCode = inputCode;
-            return inputCode;
-        }
-        return inputCode;
-    }
-
-
-
-
-
 }

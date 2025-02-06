@@ -40,11 +40,6 @@ public class Main extends JFrame{
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2 = (Graphics2D) g;
-        //g2.setColor(Color.BLACK);
-        //keyPadPanel.paint(g2);
-
-//        g2.fillRect(winWidth/2 -(safeWidth/2), winHeight/2-(safeHeight/2), safeWidth, safeHeight);
-//        g2.dispose();
     }
 
     public static  void main(String[]args){new Main();}

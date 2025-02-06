@@ -15,17 +15,16 @@ public class Panel extends JPanel {
         display = new Display();
         accessIndicator = new AccessIndicator();
 
-
+        setBackground(Color.DARK_GRAY);
         setLayout(new BorderLayout());
 
-        add(display.dPanel,BorderLayout.NORTH);
+        add(display,BorderLayout.NORTH);
         add(keyPad.kPPanel,BorderLayout.EAST);
-        add(accessIndicator.aIPanel,BorderLayout.WEST);
-        add(sLabel = new JLabel("SafeDoor"),BorderLayout.CENTER);
+        add(accessIndicator,BorderLayout.WEST);
+        add(sLabel = new JLabel("SafeDoor Closed!"),BorderLayout.CENTER);
+        sLabel.setForeground(Color.WHITE);
         add(nLabel = new JLabel("Access the safe above!"),BorderLayout.SOUTH);
-
-        accessIndicator.aIPanel.setPreferredSize(new Dimension(150, 0));
-        accessIndicator.aIPanel.setBackground(Color.GREEN);
+        nLabel.setForeground(Color.WHITE);
 
         //Adding ActionListeners to all buttons in keyPad
         keyPad.btn0.addActionListener(new ActionListener() {
@@ -107,11 +106,22 @@ public class Panel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String dLabelStr = display.dLabel.getText();
-                if(dLabelStr.equals(keyPad.code)){
-                    sLabel.setText("Safe Door Opens!");
-                    nLabel.setText("Congratulations successfully accessed safe!");
+                if(dLabelStr.length() == 4){
+                    if(dLabelStr.equals(keyPad.code)){
+                        sLabel.setText("Safe Door Opens!");
+                        nLabel.setText("Congratulations successfully accessed safe!");
+                        accessIndicator.setBackground(Color.GREEN);
 
+                    }
+                    else{
+                        sLabel.setText("Safe Door Remains Closed!");
+                        display.dLabel.setText("");
+                        nLabel.setText("Access denied!");
+                        accessIndicator.setBackground(Color.RED);
+                    }
                 }
+
+
             }
         });
 
